@@ -3,16 +3,17 @@ from ntpath import join
 from operator import truediv
 from tabnanny import check
 import discord
+import json
 from discord.ext import commands
+with open ('setting.json',mode='r',encoding='utf8') as jfile:
+    jdata=json.load(jfile)
 
 intents=discord.Intents.all()
 bot=commands.Bot(command_prefix="//",intents=intents)
-token="OTc3MDg2MDU2OTY3MDUzMzUz.Gk_nmf.V7bpZIwE94TbKIOW644HRgFSWO3vMLsHTf-7EQ"
 
 @bot.event
 async def on_ready():
-    channel=bot.get_channel(977121281361182750)
-    await channel.send( 'Ready :white_check_mark:' )
+    print("Bot is ready")
 
 
 @bot.event 
@@ -30,4 +31,4 @@ async def ping(ctx):
     await ctx.send(f'{round(bot.latency*1000)} (ms)')
 
 
-bot.run(token)    
+bot.run(jdata['token'])    
