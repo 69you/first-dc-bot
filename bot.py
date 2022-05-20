@@ -1,11 +1,16 @@
+import cmd
+from email import message
 from lib2to3.pgen2 import token
 from ntpath import join
 from operator import truediv
+from ssl import CHANNEL_BINDING_TYPES
 from tabnanny import check
 import discord
 import json
 import random
+import os
 from discord.ext import commands
+
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
@@ -27,13 +32,11 @@ async def on_member_remove(member):
     channel=bot.get_channel(977121281361182750)
     await channel.send(f'{member} has leave ')
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send(f'{round(bot.latency*1000)} (ms)')
 
-@bot.command()
-async def pic(ctx):
-    ramdon_pic=random.choice(jdata['pic'])
-    await ctx.send(ramdon_pic)
+for filename in os.listdir('./cmds'):
+    if filename.endswith(".py"):
+        bot.load_extension(f'cmds.{filename[:-3]}')
 
-bot.run(jdata['token'])    
+
+if __name__=='__main__':
+    bot.run(jdata['token'])    
