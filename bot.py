@@ -4,12 +4,13 @@ from operator import truediv
 from tabnanny import check
 import discord
 import json
+import random
 from discord.ext import commands
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
 intents=discord.Intents.all()
-bot=commands.Bot(command_prefix="//",intents=intents)
+bot=commands.Bot(command_prefix="-",intents=intents)
 
 @bot.event
 async def on_ready():
@@ -30,5 +31,9 @@ async def on_member_remove(member):
 async def ping(ctx):
     await ctx.send(f'{round(bot.latency*1000)} (ms)')
 
+@bot.command()
+async def pic(ctx):
+    ramdon_pic=random.choice(jdata['pic'])
+    await ctx.send(ramdon_pic)
 
 bot.run(jdata['token'])    
