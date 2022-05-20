@@ -14,7 +14,7 @@ token="OTc3MDg2MDU2OTY3MDUzMzUz.Gk_nmf.V7bpZIwE94TbKIOW644HRgFSWO3vMLsHTf-7EQ"
 
 async def on_ready():
     channel=bot.get_channel(977121281361182750)
-    await channel.send(Ready :white_check_mark: )
+    await channel.send( 'Ready :white_check_mark:' )
 
 
 @bot.event 
