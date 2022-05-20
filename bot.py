@@ -3,9 +3,7 @@ from ntpath import join
 from operator import truediv
 import discord
 from discord.ext import commands
-intents=discord.Intents.default()
-
-
+intents=discord.Intents.all()
 
 bot=commands.Bot(command_prefix="@@",intents=intents)
 
@@ -19,11 +17,11 @@ async def on_ready():
 @bot.event 
 
 async def on_member_join(member):
-    print(f'{member}join')
+    print(f'{member} has join')
 
 @bot.event 
 
 async def on_member_remove(member):
-    print(f'{member}leave')
+    print(f'{member} has leave')
 
 bot.run(token)    
