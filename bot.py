@@ -23,6 +23,11 @@ async def on_member_join(member):
 @bot.event 
 async def on_member_remove(member):
     channel=bot.get_channel(977121281361182750)
-    await channel.send(f'{member} has leave')
+    await channel.send(f'{member} has leave ')
+
+@bot.command()
+async def ping(ctx):
+    channel=bot.channel
+
 
 bot.run(token)    
