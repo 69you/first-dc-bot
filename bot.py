@@ -6,7 +6,7 @@ import discord
 from discord.ext import commands
 
 intents=discord.Intents.all()
-bot=commands.Bot(command_prefix="@@",intents=intents)
+bot=commands.Bot(command_prefix="//",intents=intents)
 token="OTc3MDg2MDU2OTY3MDUzMzUz.Gk_nmf.V7bpZIwE94TbKIOW644HRgFSWO3vMLsHTf-7EQ"
 
 @bot.event
@@ -27,7 +27,7 @@ async def on_member_remove(member):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send(f'{round(bot.latency*1000,2)} (ms)')
+    await ctx.send(f'{round(bot.latency*1000)} (ms)')
 
 
 bot.run(token)    
