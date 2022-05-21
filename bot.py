@@ -20,17 +20,8 @@ bot=commands.Bot(command_prefix="-",intents=intents)
 @bot.event
 async def on_ready():
     print("Bot is ready")
-
-
-@bot.event 
-async def on_member_join(member):
     channel=bot.get_channel(977121281361182750)
-    await channel.send(f'{member} has join')
-
-@bot.event 
-async def on_member_remove(member):
-    channel=bot.get_channel(977121281361182750)
-    await channel.send(f'{member} has leave ')
+    await channel.send("Ready <a:emoji_33:971218065259913226> " )
 
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
