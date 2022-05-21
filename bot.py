@@ -32,7 +32,6 @@ async def on_member_remove(member):
     channel=bot.get_channel(977121281361182750)
     await channel.send(f'{member} has leave ')
 
-
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
         bot.load_extension(f'cmds.{filename[:-3]}')
