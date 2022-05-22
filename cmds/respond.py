@@ -1,15 +1,22 @@
 from array import array
 from ast import keyword
 from email import message
+import imp
 import discord
 from discord.ext import commands
 from core.classes import cog_all
+
+import json
+import random
+with open ('setting.json',mode='r',encoding='utf8') as jfile:
+    jdata=json.load(jfile)
+
 
 class respond(cog_all):
     @commands.Cog.listener()
     async def on_message(self,msg):
 
-        keyword1=["早安","早"]
+        keyword1=["早安"]
         for key1 in keyword1:
             if key1 in msg.content and msg.author != self.bot.user and msg.author.id !=338222603829510164:
                 await msg.reply("早安")
@@ -50,6 +57,11 @@ class respond(cog_all):
             await msg.add_reaction("🇦")
             await msg.add_reaction("🇱")
             await msg.add_reaction("🇲")
+        
+        if msg.content =="<@584677291318312963>" :
+            ramdon_word=random.choice(jdata['word'])
+            await msg.channel.send("<@584677291318312963>")
+            await msg.channel.send(ramdon_word)
 
 def setup(bot):
     bot.add_cog(respond(bot))
