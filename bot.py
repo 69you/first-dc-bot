@@ -9,6 +9,7 @@ import discord
 import json
 import random
 import os
+import datetime
 from discord.ext import commands
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
@@ -16,12 +17,21 @@ with open ('setting.json',mode='r',encoding='utf8') as jfile:
 
 intents=discord.Intents.all()
 bot=commands.Bot(command_prefix="-",intents=intents)
+datetime.timezone
 
 @bot.event
 async def on_ready():
     print("Bot is ready")
     channel=bot.get_channel(977121281361182750)
-    await channel.send("Ready <a:emoji_33:971218065259913226> " )
+    await channel.send("Ready <a:emoji_33:971218065259913226>" )
+
+@bot.command()
+async def help1(ctx):
+    embed=discord.Embed(title="侑介のbot", url="https://reurl.cc/55d5ny", description="由侑介#4644所開發的人工智障", color=0xfd12ca, timestamp=datetime.datetime.now())
+    embed.set_author(name="<==這是侑介", icon_url="https://cdn.discordapp.com/avatars/878830839822176287/e947993f71d34bd423b0a24e166ccf42.png?size=4096")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/977086056967053353/ebc17adf1bc26fe27571586430b56ae8.png?size=4096")
+    embed.add_field(name="undefined", value="undefined", inline=False)
+    await ctx.send(embed=embed) 
 
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
