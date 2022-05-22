@@ -33,6 +33,7 @@ async def help1(ctx):
     embed.add_field(name="undefined", value="undefined", inline=False)
     await ctx.send(embed=embed) 
 
+
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
         bot.load_extension(f'cmds.{filename[:-3]}')
