@@ -21,20 +21,32 @@ class backevent(cog_all):
 class load(cog_all):
     @commands.command()
     async def load(self,ctx,extension):
-        self.bot.load_extension(f'cmds.{extension}')
-        await ctx.send(f'loaded {extension}')
+        if ctx.author.id == 878830839822176287:
+            self.bot.load_extension(f'cmds.{extension}')            
+            await ctx.send(f'loaded {extension}')
+        else :
+            await ctx.send("你是侑介#4644 嗎")
+            await ctx.send("<a:691225128549482496:978100671020679168>")
 
 class unload(cog_all):
     @commands.command()
     async def unload(self,ctx,extension):
-        self.bot.unload_extension(f'cmds.{extension}')
-        await ctx.send(f'unloaded {extension}')
+        if ctx.author.id == 878830839822176287:
+            self.bot.unload_extension(f'cmds.{extension}')
+            await ctx.send(f'unloaded {extension}')
+        else :
+            await ctx.send("你是侑介#4644 嗎")
+            await ctx.send("<a:691225128549482496:978100671020679168>")
 
 class reload(cog_all):
     @commands.command()
     async def reload(self,ctx,extension):
-        self.bot.reload_extension(f'cmds.{extension}')
-        await ctx.send(f'reloaded {extension}')
+        if ctx.author.id == 878830839822176287:
+            self.bot.reload_extension(f'cmds.{extension}')
+            await ctx.send(f'reloaded {extension}')
+        else:
+            await ctx.send("你是侑介#4644 嗎")
+            await ctx.send("<a:691225128549482496:978100671020679168>")
 
 def setup(bot):
     bot.add_cog(backevent(bot))
