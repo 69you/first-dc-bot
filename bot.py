@@ -27,12 +27,12 @@ async def on_ready():
 
 @bot.command()
 async def help1(ctx):
-    embed=discord.Embed(title="侑介のbot", url="https://reurl.cc/55d5ny", description="由侑介#4644所開發的人工智障", color=0xfd12ca, timestamp=datetime.datetime.now())
+    embed=discord.Embed(title="侑介のbot", url="http://yt1.piee.pw/46vhku", description="由侑介#4644所開發的人工智障", color=0xfd12ca, timestamp=datetime.datetime.now())
     embed.set_author(name="<==這是侑介", icon_url="https://cdn.discordapp.com/avatars/878830839822176287/e947993f71d34bd423b0a24e166ccf42.png?size=4096")
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/977086056967053353/ebc17adf1bc26fe27571586430b56ae8.png?size=4096")
     embed.add_field(name="undefined", value="undefined", inline=False)
     await ctx.send(embed=embed) 
-
+    
 
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
