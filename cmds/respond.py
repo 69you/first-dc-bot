@@ -31,21 +31,17 @@ class respond(cog_all):
                 await msg.channel.send("<a:778203433701474364:977583066920931338>") 
                 break  
 
-        keyword4=["走開"]
-        for key4 in keyword4:
-            if key4 in msg.content and msg.author != self.bot.user:
-                await msg.reply("你怎麼叫我走開QQ，不跟你好了啦")
-                await msg.channel.send("<:emoji_46:935534306841997333>")  
+        if msg.content == "走開" and msg.author != self.bot.user:
+            await msg.reply("你怎麼叫我走開QQ，不跟你好了啦")
+            await msg.channel.send("<:emoji_46:935534306841997333>")  
 
-        keyword5=["簽","ㄑ"]
-        for key5 in keyword5:
-            if key5 in msg.content and msg.author != self.bot.user:
+        if msg.author.id == 869025114862284810 or msg.author.id == 647775766838378496 or msg.author.id == 942632954935541800 or msg.author.id == 927834871857033267 or msg.author.id == 878830839822176287 or msg.author.id == 883559220803436574 or msg.author.id == 711241728375652353 or msg.author.id == 571295524158963712 or msg.author.id == 935414869648351313 or msg.author.id == 860280256208437258 or msg.author.id ==880009654061645824:
+            if msg.content == "簽" and msg.author != self.bot.user:
                 await msg.add_reaction("✅")
-                break
 
         keyword6=["❓","?","？"]
         for key6 in keyword6:
-            if key6 in msg.content and msg.author != self.bot.user:
+            if msg.content == key6 and msg.author != self.bot.user:
                 await msg.add_reaction("❓")
                 break
 
