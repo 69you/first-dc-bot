@@ -59,6 +59,27 @@ class respond(cog_all):
                 await msg.channel.send("<a:emoji_14:962669697881477279>")
                 await msg.add_reaction("<a:emoji_14:962669697881477279>")
                 break
+
+        keyword9=["假","ru83"]
+        for key9 in keyword9:
+            if key9 in msg.content and msg.author != self.bot.user:
+                await msg.add_reaction("<:u_:978299522172211200>")
+                break
+
+        keyword10=["您","sup6"]
+        for key10 in keyword10:
+            if key10 in msg.content and msg.author != self.bot.user:
+                await msg.add_reaction("<:fake:978299535128420432>")
+                break
+
+
+        
+        keyword11=["您假","sup6ru83"]
+        for key11 in keyword11:
+            if key11 in msg.content and msg.author != self.bot.user:
+                await msg.add_reaction("<:u_:978299522172211200>")
+                await msg.add_reaction("<:fake:978299535128420432>")
+                break
         
 
 def setup(bot):
