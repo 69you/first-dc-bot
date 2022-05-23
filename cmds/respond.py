@@ -72,14 +72,16 @@ class respond(cog_all):
                 await msg.add_reaction("<:fake:978299535128420432>")
                 break
 
-
-        
         keyword11=["您假","sup6ru83"]
         for key11 in keyword11:
             if key11 in msg.content and msg.author != self.bot.user:
                 await msg.add_reaction("<:u_:978299522172211200>")
                 await msg.add_reaction("<:fake:978299535128420432>")
                 break
+
+        if msg.author.id == 927834871857033267:
+            if "可愛" in msg.content and msg.author != self.bot.user:
+                    await msg.reply("煋夜，你很可愛")
         
 
 def setup(bot):
