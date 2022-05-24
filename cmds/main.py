@@ -66,9 +66,19 @@ class fun(cog_all):
             await ctx.send("你以為你是 `侑介#4644` 或是管管嗎")
             await ctx.send("<a:691225128549482496:978100671020679168>")
 
+class help(cog_all):
+    @commands.command()
+    async def help(self,ctx):
+        #await ctx.message.delete()
+        embed=discord.Embed(title="侑介のbot", url="http://yt1.piee.pw/46vhku", description="由侑介#4644所開發的人工智障", color=0xfd12ca, timestamp=datetime.datetime.utcnow())
+        embed.set_author(name="<==這是侑介", icon_url="https://cdn.discordapp.com/avatars/878830839822176287/e947993f71d34bd423b0a24e166ccf42.png?size=4096")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/977086056967053353/ebc17adf1bc26fe27571586430b56ae8.png?size=4096")
+        await ctx.send(embed=embed) 
+
 def setup(bot):
     bot.add_cog(backevent(bot))
     bot.add_cog(load(bot))
     bot.add_cog(unload(bot))
     bot.add_cog(reload(bot))
     bot.add_cog(fun(bot))
+    bot.add_cog(help(bot))
