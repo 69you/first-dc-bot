@@ -82,6 +82,9 @@ class respond(cog_all):
         if msg.author.id == 927834871857033267:
             if "可愛" in msg.content and msg.author != self.bot.user:
                     await msg.reply("煋夜，你很可愛")
+
+        if msg.content == "簽" and msg.author != self.bot.user:
+            await msg.add_reaction("✅")
         
 
 def setup(bot):
