@@ -52,14 +52,15 @@ class reload(cog_all):
 class fun(cog_all):
     @commands.command()
     async def sayd(self,ctx, *,msg):
-        await ctx.message.delete()
-        await ctx.send(msg)
+        if ctx.author.id == 878830839822176287 or ctx.author.id==927834871857033267:
+            await ctx.message.delete()
+            await ctx.send(msg)
 
     @commands.command()
     async def clear(self,ctx,deletenum :int):
         if ctx.author.id == 869025114862284810 or ctx.author.id == 647775766838378496 or ctx.author.id == 942632954935541800 or ctx.author.id == 927834871857033267 or ctx.author.id == 878830839822176287 or ctx.author.id == 883559220803436574 or ctx.author.id == 711241728375652353 or ctx.author.id == 571295524158963712 or ctx.author.id == 935414869648351313 or ctx.author.id == 860280256208437258 or ctx.author.id ==880009654061645824:
             await ctx.channel.purge(limit= deletenum+1)
-            embed=discord.Embed(title="管管們爆怒", description=f"導致{deletenum}被吃掉了", color=0xfd12ca, timestamp= datetime.datetime.utcnow())
+            embed=discord.Embed(title="管管們爆怒", description=f"導致 {deletenum} 條訊息被吃掉了", color=0xfd12ca, timestamp= datetime.datetime.utcnow())
             msg = await ctx.send(embed=embed)
         else:
             await ctx.send("你以為你是 `侑介#4644` 或是管管嗎")
