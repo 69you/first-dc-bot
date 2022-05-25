@@ -16,7 +16,7 @@ class timereport(cog_all):
                 onlinetime+=900/60
                 await asyncio.sleep(900) #sec
         self.testloop=self.bot.loop.create_task(onlinetime())
-
+    #for log online channel
     @commands.command()
     async def set_channel(self,ctx,channel:int):
         if ctx.author.id==878830839822176287:
