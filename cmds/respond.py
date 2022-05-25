@@ -56,8 +56,8 @@ class respond(cog_all):
         keyword8=["佬","大佬"]
         for key8 in keyword8:
             if key8 in msg.content and msg.author != self.bot.user:
-                await msg.channel.send("<a:emoji_14:962669697881477279>")
                 await msg.add_reaction("<a:emoji_14:962669697881477279>")
+                await msg.channel.send("<a:emoji_14:962669697881477279>")
                 break
 
         keyword9=["假","ru83"]
