@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
-import json
-import random
+import json , random
 from core.classes import cog_all
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
