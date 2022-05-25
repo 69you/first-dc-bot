@@ -1,8 +1,7 @@
 import discord
 from discord.ext import commands
 from core.classes import cog_all
-import json
-import datetime
+import json , datetime
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
