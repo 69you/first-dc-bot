@@ -1,3 +1,5 @@
+from ast import keyword
+import string
 import discord
 from discord.ext import commands
 from core.classes import cog_all
@@ -21,49 +23,49 @@ class backevent(cog_all):
 class load(cog_all):
     @commands.command()
     async def load(self,ctx,extension):
-        if ctx.author.id == 878830839822176287:
+        if ctx.author.id == (int(jdata["yuusuke id"])):
             self.bot.load_extension(f'cmds.{extension}')            
             await ctx.send(f'loaded {extension}')
         else :
-            await ctx.send("你是`侑介#4644` 嗎")
-            await ctx.send("<a:691225128549482496:978100671020679168>")
+            await ctx.send(jdata["are u yuusuke"])
+            await ctx.send("ars hit")
 
 class unload(cog_all):
     @commands.command()
     async def unload(self,ctx,extension):
-        if ctx.author.id == 878830839822176287:
+        if ctx.author.id == (int(jdata["yuusuke id"])):
             self.bot.unload_extension(f'cmds.{extension}')
             await ctx.send(f'unloaded {extension}')
         else :
-            await ctx.send("你是`侑介#4644` 嗎")
-            await ctx.send("<a:691225128549482496:978100671020679168>")
+            await ctx.send(jdata["are u yuusuke"])
+            await ctx.send(jdata["ars hit"])
 
 class reload(cog_all):
     @commands.command()
     async def reload(self,ctx,extension):
-        if ctx.author.id == 878830839822176287:
+        if ctx.author.id == (int(jdata["yuusuke id"])):
             self.bot.reload_extension(f'cmds.{extension}')
             await ctx.send(f'reloaded {extension}')
         else:
-            await ctx.send("你是`侑介#4644` 嗎")
-            await ctx.send("<a:691225128549482496:978100671020679168>")
+            await ctx.send(jdata["are u yuusuke"])
+            await ctx.send(jdata["ars hit"])
 
 class fun(cog_all):
     @commands.command()
     async def sayd(self,ctx, *,msg):
-        if ctx.author.id == 878830839822176287 or ctx.author.id==927834871857033267:
+        if ctx.author.id == (int(jdata["yuusuke id"])) or ctx.author.id == (int(jdata["煋夜 id"])):
             await ctx.message.delete()
             await ctx.send(msg)
 
     @commands.command()
     async def clear(self,ctx,deletenum :int):
-        if ctx.author.id == 869025114862284810 or ctx.author.id == 647775766838378496 or ctx.author.id == 942632954935541800 or ctx.author.id == 927834871857033267 or ctx.author.id == 878830839822176287 or ctx.author.id == 883559220803436574 or ctx.author.id == 711241728375652353 or ctx.author.id == 571295524158963712 or ctx.author.id == 935414869648351313 or ctx.author.id == 860280256208437258 or ctx.author.id ==880009654061645824:
+        if ctx.author.id == (int(jdata["yuusuke id"])) or ctx.author.id == (int(jdata["誠 id"])) or ctx.author.id == (int(jdata["小飄 id"])) or ctx.author.id == (int(jdata["小小飄 id"])) or ctx.author.id == (int(jdata["煋夜 id"])) or ctx.author.id == (int(jdata["死神 id"])) or ctx.author.id == (int(jdata["小魚 id"])) or ctx.author.id == (int(jdata["昆布 id"])) or ctx.author.id == (int(jdata["四季 id"])) or ctx.author.id == (int(jdata["夏旪 id"])) or ctx.author.id == (int(jdata["白日夢 id"])):
             await ctx.channel.purge(limit= deletenum+1)
-            embed=discord.Embed(title="管管們爆怒", description=f"導致 {deletenum} 條訊息被吃掉了", color=0xfd12ca, timestamp= datetime.datetime.utcnow())
+            embed=discord.Embed(title="管管們爆怒", description=f"導致 {deletenum} 條訊息被 {ctx.author.name} 吃掉了", color=0xfd12ca, timestamp= datetime.datetime.utcnow())
             msg = await ctx.send(embed=embed)
         else:
             await ctx.send("你以為你是 `侑介#4644` 或是管管嗎")
-            await ctx.send("<a:691225128549482496:978100671020679168>")
+            await ctx.send(jdata["ars hit"])
 
 class help(cog_all):
     @commands.command()
