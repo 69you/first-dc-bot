@@ -25,8 +25,9 @@ async def on_ready():
     print("Bot is ready")
     channel=bot.get_channel(977121281361182750)
     await channel.send("Ready <a:emoji_33:971218065259913226>" ) 
+    online_time=datetime.datetime.now().strftime("%Y /%m /%d  %H :%M :%S")
+    await channel.send(f"啟動時間: {online_time}")
     
-
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
         bot.load_extension(f'cmds.{filename[:-3]}')
