@@ -3,7 +3,7 @@ import string
 import discord
 from discord.ext import commands
 from core.classes import cog_all
-import json , datetime
+import json , datetime , random
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -50,13 +50,7 @@ class reload(cog_all):
             await ctx.send(jdata["are u yuusuke"])
             await ctx.send(jdata["ars hit"])
 
-class fun(cog_all):
-    @commands.command()
-    async def sayd(self,ctx, *,msg):
-        if ctx.author.id == (int(jdata["yuusuke id"])) or ctx.author.id == (int(jdata["煋夜 id"])):
-            await ctx.message.delete()
-            await ctx.send(msg)
-
+class manage(cog_all):
     @commands.command()
     async def clear(self,ctx,deletenum :int):
         if ctx.author.id == (int(jdata["yuusuke id"])) or ctx.author.id == (int(jdata["誠 id"])) or ctx.author.id == (int(jdata["小飄 id"])) or ctx.author.id == (int(jdata["小小飄 id"])) or ctx.author.id == (int(jdata["煋夜 id"])) or ctx.author.id == (int(jdata["死神 id"])) or ctx.author.id == (int(jdata["小魚 id"])) or ctx.author.id == (int(jdata["昆布 id"])) or ctx.author.id == (int(jdata["四季 id"])) or ctx.author.id == (int(jdata["夏旪 id"])) or ctx.author.id == (int(jdata["白日夢 id"])):
@@ -76,10 +70,35 @@ class help(cog_all):
         embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/977086056967053353/ebc17adf1bc26fe27571586430b56ae8.png?size=4096")
         await ctx.send(embed=embed) 
 
+class fun(cog_all):
+    @commands.command()
+    async def pic(self,ctx):
+        ramdon_pic=random.choice(jdata['pic'])
+        await ctx.send(ramdon_pic)
+
+    @commands.command()
+    async def time(self,ctx):
+        now_time=datetime.datetime.now().strftime("%Y /%m /%d  %H :%M :%S")
+        await ctx.channel.send(f"現在時間: {now_time}")        
+
+    @commands.command()
+    async def ping(self,ctx):
+        await ctx.send("延遲 "+f'{round(self.bot.latency*1000)} (ms)')
+
+    @commands.command()
+    async def sayd(self,ctx, *,msg):
+        if ctx.author.id == (int(jdata["yuusuke id"])) or ctx.author.id == (int(jdata["煋夜 id"])):
+            await ctx.message.delete()
+            await ctx.send(msg)
+
+
+
+
 def setup(bot):
     bot.add_cog(backevent(bot))
     bot.add_cog(load(bot))
     bot.add_cog(unload(bot))
     bot.add_cog(reload(bot))
-    bot.add_cog(fun(bot))
+    bot.add_cog(manage(bot))
     bot.add_cog(help(bot))
+    bot.add_cog(fun(bot))
