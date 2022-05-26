@@ -13,12 +13,12 @@ class backevent(cog_all):
     @commands.Cog.listener() 
     async def on_member_join(self,member):
         channel=self.bot.get_channel(977121281361182750)
-        await channel.send(f'{member} has join')
+        await channel.send(f'`{member}` has join `{member.guild}`')
 
     @commands.Cog.listener() 
     async def on_member_remove(self,member):
         channel=self.bot.get_channel(977121281361182750)
-        await channel.send(f'{member} has leave ')
+        await channel.send(f'`{member}` has leave `{member.guild}`')
 
 class load(cog_all):
     @commands.command()
