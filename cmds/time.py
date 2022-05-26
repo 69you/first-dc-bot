@@ -3,6 +3,10 @@ import discord
 from discord.ext import commands
 import json , asyncio, datetime
 from core.classes import cog_all
+import json
+
+with open ('setting.json',mode='r',encoding='utf8') as jfile:
+    jdata=json.load(jfile)
 
 class timereport(cog_all):
     def __init__(self, *args, **kwargs):
@@ -31,7 +35,7 @@ class timereport(cog_all):
     #for log online channel
     @commands.command()
     async def set_channel(self,ctx,channel:int):
-        if ctx.author.id==878830839822176287:
+        if ctx.author.id== (int(jdata["yuusuke id"])):
             self.channel= self.bot.get_channel(channel)
             await ctx.send(f"set channel:{self.channel.mention}")
         else:
