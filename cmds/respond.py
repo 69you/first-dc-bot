@@ -6,7 +6,6 @@ import discord
 from discord.ext import commands
 from core.classes import cog_all
 
-
 class respond(cog_all):
     @commands.Cog.listener()
     async def on_message(self,msg):
@@ -86,6 +85,7 @@ class respond(cog_all):
         if msg.content == "簽" and msg.author != self.bot.user:
             await msg.add_reaction("✅")
         
+
 
 def setup(bot):
     bot.add_cog(respond(bot))
