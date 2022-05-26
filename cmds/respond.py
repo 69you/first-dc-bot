@@ -5,6 +5,10 @@ import imp
 import discord
 from discord.ext import commands
 from core.classes import cog_all
+import json
+
+with open ('setting.json',mode='r',encoding='utf8') as jfile:
+    jdata=json.load(jfile)
 
 class respond(cog_all):
     @commands.Cog.listener()
@@ -34,7 +38,7 @@ class respond(cog_all):
             await msg.reply("你怎麼叫我走開QQ，不跟你好了啦")
             await msg.channel.send("<:emoji_46:935534306841997333>")  
 
-        if msg.author.id == 869025114862284810 or msg.author.id == 647775766838378496 or msg.author.id == 942632954935541800 or msg.author.id == 927834871857033267 or msg.author.id == 878830839822176287 or msg.author.id == 883559220803436574 or msg.author.id == 711241728375652353 or msg.author.id == 571295524158963712 or msg.author.id == 935414869648351313 or msg.author.id == 860280256208437258 or msg.author.id ==880009654061645824:
+        if msg.author.id == (int(jdata["yuusuke id"])) or msg.author.id == (int(jdata["誠 id"])) or msg.author.id == (int(jdata["小飄 id"])) or msg.author.id == (int(jdata["小小飄 id"])) or msg.author.id == (int(jdata["煋夜 id"])) or msg.author.id == (int(jdata["死神 id"])) or msg.author.id == (int(jdata["小魚 id"])) or msg.author.id == (int(jdata["昆布 id"])) or msg.author.id == (int(jdata["四季 id"])) or msg.author.id == (int(jdata["夏旪 id"])) or msg.author.id == (int(jdata["白日夢 id"])):
             if msg.content == "簽" and msg.author != self.bot.user:
                 await msg.add_reaction("✅")
 
@@ -54,7 +58,12 @@ class respond(cog_all):
 
         keyword8=["佬","大佬"]
         for key8 in keyword8:
-            if key8 in msg.content and msg.author != self.bot.user:
+            if key8 in msg.content and msg.author != self.bot.user and msg.author.id == (int(jdata["yuusuke id"])):
+                await msg.add_reaction("<a:emoji_14:962669697881477279>")
+                await msg.channel.send("<a:emoji_14:962669697881477279>")
+                break
+            elif key8 in msg.content and msg.author != self.bot.user and msg.author.id != (int(jdata["yuusuke id"])):
+                await msg.add_reaction("↖️") 
                 await msg.add_reaction("<a:emoji_14:962669697881477279>")
                 await msg.channel.send("<a:emoji_14:962669697881477279>")
                 break
@@ -78,7 +87,7 @@ class respond(cog_all):
                 await msg.add_reaction("<:fake:978299535128420432>")
                 break
 
-        if msg.author.id == 927834871857033267:
+        if msg.author.id == (int(jdata["煋夜 id"])):
             if "可愛" in msg.content and msg.author != self.bot.user:
                     await msg.reply("煋夜，你很可愛")
 
