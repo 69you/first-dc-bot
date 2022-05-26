@@ -33,4 +33,4 @@ for filename in os.listdir('./cmds'):
 
 
 if __name__=='__main__':
-    bot.run(jdata['token'])  
+    bot.run(jdata['token']) 
