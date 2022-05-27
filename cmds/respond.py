@@ -90,8 +90,11 @@ class respond(cog_all):
         if msg.author.id == (int(jdata["煋夜 id"])):
             if "可愛" in msg.content and msg.author != self.bot.user:
                     await msg.reply("煋夜，你很可愛")
-
-        
+'''
+        if "<@878830839822176287>" in msg.content and msg.author != self.bot.user:
+                await msg.reply("侑介正在做專題喔,等他上線吧")
+                await msg.channel.send("<a:777237749740470282:979706385765896193>")
+        '''
 
 
 def setup(bot):
