@@ -27,7 +27,7 @@ class respond(cog_all):
                 await msg.reply("午安 <:kohane:969515581353123911>")
                 break
 
-        keyword3=["晚安","睡覺","睡覺去"]
+        keyword3=["晚安","睡覺","睡覺去","<:sleep:969505662289735750>"]
         for key3 in keyword3:
             if key3 in msg.content and msg.author != self.bot.user:
                 await msg.reply("晚安")
