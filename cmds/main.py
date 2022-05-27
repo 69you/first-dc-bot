@@ -79,7 +79,9 @@ class fun(cog_all):
     @commands.command()
     async def time(self,ctx):
         now_time=datetime.datetime.now().strftime("%Y /%m /%d  %H :%M :%S")
-        await ctx.channel.send(f"現在時間: {now_time}")        
+        now_time2=datetime.datetime.now().strftime("%H%M")
+        await ctx.channel.send(f"現在時間: {now_time}")
+        await ctx.channel.send(f"現在時間: {now_time2}")          
 
     @commands.command()
     async def ping(self,ctx):
