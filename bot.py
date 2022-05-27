@@ -18,11 +18,10 @@ with open ('setting.json',mode='r',encoding='utf8') as jfile:
 
 intents=discord.Intents.all()
 bot=commands.Bot(command_prefix="*",intents=intents,help_command=None)
-datetime.timezone
 
 @bot.event
 async def on_ready():
-    print("Bot is ready")
+    print("\nBot is ready")
     channel=bot.get_channel(977121281361182750)
     await channel.send("Ready <a:emoji_33:971218065259913226>" ) 
     online_time=datetime.datetime.now().strftime("%Y /%m /%d  %H :%M :%S")
@@ -30,6 +29,7 @@ async def on_ready():
     
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
+        print(f'{filename[:-3]}')
         bot.load_extension(f'cmds.{filename[:-3]}')
 
 
