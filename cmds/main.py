@@ -3,11 +3,10 @@ import string
 import discord
 from discord.ext import commands
 from core.classes import cog_all
-import json , datetime , random
+import json , datetime , random, asyncio
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
-
 
 class backevent(cog_all):
     @commands.Cog.listener() 
@@ -50,14 +49,30 @@ class reload(cog_all):
             await ctx.send(jdata["are u yuusuke"])
             await ctx.send(jdata["ars hit"])
 
+    @commands.command()
+    async def shutdown(self,ctx):
+      if ctx.author.id==(int(jdata["yuusuke id"])):
+          await ctx.channel.purge(limit=1)
+          await ctx.send("Restarting bot...")
+          await ctx.bot.logout()
+          ctx.bot.run(jdata["token"])
+          await asyncio.sleep(2)
+          await ctx.channel.purge(limit=1)
+          await ctx.send("Restarting complete!")
+          await asyncio.sleep(2)
+          await ctx.channel.purge(limit=1)
+      
 class manage(cog_all):
     @commands.command()
     async def clear(self,ctx,deletenum :int):
-        if ctx.author.id == (int(jdata["yuusuke id"])) or ctx.author.id == (int(jdata["誠 id"])) or ctx.author.id == (int(jdata["小飄 id"])) or ctx.author.id == (int(jdata["小小飄 id"])) or ctx.author.id == (int(jdata["煋夜 id"])) or ctx.author.id == (int(jdata["死神 id"])) or ctx.author.id == (int(jdata["小魚 id"])) or ctx.author.id == (int(jdata["昆布 id"])) or ctx.author.id == (int(jdata["四季 id"])) or ctx.author.id == (int(jdata["夏旪 id"])) or ctx.author.id == (int(jdata["白日夢 id"])):
+        if  ctx.author.id == (int(jdata["誠 id"])) or ctx.author.id == (int(jdata["小飄 id"])) or ctx.author.id == (int(jdata["小小飄 id"])) or ctx.author.id == (int(jdata["煋夜 id"])) or ctx.author.id == (int(jdata["死神 id"])) or ctx.author.id == (int(jdata["小魚 id"]))  or ctx.author.id == (int(jdata["四季 id"])) or  ctx.author.id == (int(jdata["白日夢 id"])) or ctx.author.id==(int(jdata["蒸蛋 id"])):
             await ctx.channel.purge(limit= deletenum+1)
-            embed=discord.Embed(title="管管們爆怒", description=f"導致 {deletenum} 條訊息被 {ctx.author.name} 吃掉了", color=0xfd12ca, timestamp= datetime.datetime.utcnow())
-            msg = await ctx.send(embed=embed)
+            embed=discord.Embed(title="管管們爆怒", description=f"導致 {deletenum} 條訊息被 {ctx.author.name} 吃掉了", color=0xfd12ca, timestamp= datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+            await ctx.send(embed=embed)
+        elif ctx.author.id == (int(jdata["yuusuke id"])):
+            await ctx.channel.purge(limit= deletenum+1)
         else:
+            await ctx.message.delete()
             await ctx.send("你以為你是 `侑介#4644` 或是管管嗎")
             await ctx.send(jdata["ars hit"])
 
@@ -65,33 +80,12 @@ class help(cog_all):
     @commands.command()
     async def help(self,ctx):
         #await ctx.message.delete()
-        embed=discord.Embed(title="侑介のbot", url="http://yt1.piee.pw/46vhku", description="由侑介#4644所開發的人工智障", color=0xfd12ca, timestamp=datetime.datetime.utcnow())
+        embed=discord.Embed(title="侑介のbot", url="http://yt1.piee.pw/46vhku", description="由侑介#4644所開發的人工智障", color=0xfd12ca, timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
         embed.set_author(name="<==這是侑介", icon_url="https://cdn.discordapp.com/avatars/878830839822176287/e947993f71d34bd423b0a24e166ccf42.png?size=4096")
         embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/977086056967053353/ebc17adf1bc26fe27571586430b56ae8.png?size=4096")
         await ctx.send(embed=embed) 
 
-class fun(cog_all):
-    @commands.command()
-    async def pic(self,ctx):
-        ramdon_pic=random.choice(jdata['pic'])
-        await ctx.send(ramdon_pic)
-
-    @commands.command()
-    async def time(self,ctx):
-        now_time=datetime.datetime.now().strftime("%Y /%m /%d  %H :%M :%S")
-        now_time2=datetime.datetime.now().strftime("%H%M")
-        await ctx.channel.send(f"現在時間: {now_time}")
-        await ctx.channel.send(f"現在時間: {now_time2}")          
-
-    @commands.command()
-    async def ping(self,ctx):
-        await ctx.send("延遲 "+f'{round(self.bot.latency*1000)} (ms)')
-
-    @commands.command()
-    async def sayd(self,ctx, *,msg):
-        if ctx.author.id == (int(jdata["yuusuke id"])) or ctx.author.id == (int(jdata["煋夜 id"])):
-            await ctx.message.delete()
-            await ctx.send(msg)
+          
 
 
 
@@ -103,4 +97,3 @@ def setup(bot):
     bot.add_cog(reload(bot))
     bot.add_cog(manage(bot))
     bot.add_cog(help(bot))
-    bot.add_cog(fun(bot))
