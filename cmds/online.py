@@ -18,9 +18,9 @@ class onlinereport(cog_all):
             self.channel=self.bot.get_channel(977121281361182750)
             onlinetime=0
             while not self.bot.is_closed():
-                await self.channel.send(f"沒忘記我吧,我已經上線了{onlinetime}分鐘")
-                onlinetime+=900/60
-                await asyncio.sleep(900) #sec
+                await self.channel.send(f"沒忘記我吧,我已經上線了{onlinetime}小時")
+                onlinetime+=1
+                await asyncio.sleep(3600) #sec
         self.testloop=self.bot.loop.create_task(onlinetime())
 
 def setup(bot):
