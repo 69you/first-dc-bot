@@ -13,6 +13,8 @@ import datetime
 import asyncio
 from discord.ext import commands
 
+
+
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
@@ -24,14 +26,14 @@ async def on_ready():
     print("\nBot is ready")
     channel=bot.get_channel(977121281361182750)
     await channel.send("Ready <a:emoji_33:971218065259913226>" ) 
-    online_time=datetime.datetime.now().strftime("%Y /%m /%d  %H :%M :%S")
+    online_time=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))).strftime("%Y /%m /%d  %H :%M :%S")
     await channel.send(f"啟動時間: {online_time}")
     
 for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
         print(f'{filename[:-3]}')
         bot.load_extension(f'cmds.{filename[:-3]}')
-
+        
 
 if __name__=='__main__':
-    bot.run(jdata['token']) 
+    bot.run("OTgwMzU4OTE1MTg1MzE5OTg2.GmuSsS.yaq-xsY3mP8m36JHibV4LLrSLVATPf0frdHSQY") 
