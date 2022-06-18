@@ -1,10 +1,3 @@
-import cmd
-from email import message
-from lib2to3.pgen2 import token
-from ntpath import join
-from operator import truediv
-from ssl import CHANNEL_BINDING_TYPES
-from tabnanny import check
 import discord
 import json
 import random
@@ -23,6 +16,7 @@ bot=commands.Bot(command_prefix="*",intents=intents,help_command=None)
 
 @bot.event
 async def on_ready():
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="“hello, world 2022”"),status=discord.Status.dnd)
     print("\nBot is ready")
     channel=bot.get_channel(977121281361182750)
     await channel.send("Ready <a:emoji_33:971218065259913226>" ) 
@@ -33,7 +27,6 @@ for filename in os.listdir('./cmds'):
     if filename.endswith(".py"):
         print(f'{filename[:-3]}')
         bot.load_extension(f'cmds.{filename[:-3]}')
-        
 
 if __name__=='__main__':
-    bot.run("OTgwMzU4OTE1MTg1MzE5OTg2.GmuSsS.yaq-xsY3mP8m36JHibV4LLrSLVATPf0frdHSQY") 
+    bot.run("OTc3MDg2MDU2OTY3MDUzMzUz.GwZaQ0.w5u9B5NpOEgEGUWpmgdkRckDN2qhGbgRSRP9Ps") 
