@@ -103,7 +103,7 @@ class music_cog(commands.Cog):
         if self.is_paused:
             self.vc.resume()
 
-    @commands.command(name="skip", aliases=["s"], help="Skips the current song being played")
+    @commands.command(name="skip", aliases=["sk"], help="Skips the current song being played")
     async def skip(self, ctx):
         if self.vc != None and self.vc:
             self.vc.stop()
