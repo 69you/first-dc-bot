@@ -1,7 +1,3 @@
-from array import array
-from ast import keyword
-from email import message
-import imp
 import discord
 from discord.ext import commands
 from core.classes import cog_all
