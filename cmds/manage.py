@@ -1,23 +1,45 @@
+from turtle import title
 import discord
 from discord.ext import commands
 import json,datetime
 from core.classes import cog_all
+from discord import User
+from discord.ext.commands import Bot
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
 class manage(cog_all):
     @commands.command()
+    @commands.has_guild_permissions(manage_messages=True)
     async def clear(self,ctx,deletenum :int):
-        if  ctx.author.id == (int(jdata["誠 id"])) or ctx.author.id == (int(jdata["小飄 id"])) or ctx.author.id == (int(jdata["小小飄 id"])) or ctx.author.id == (int(jdata["煋夜 id"])) or ctx.author.id == (int(jdata["死神 id"])) or ctx.author.id == (int(jdata["小魚 id"]))  or ctx.author.id == (int(jdata["四季 id"])) or  ctx.author.id == (int(jdata["白日夢 id"])):
-            await ctx.channel.purge(limit= deletenum+1)
-            embed=discord.Embed(title="管管們爆怒", description=f"導致 {deletenum} 條訊息被 {ctx.author.name} 吃掉了", color=0xfd12ca, timestamp= datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
-            await ctx.send(embed=embed)
-        elif ctx.author.id == (int(jdata["yuusuke id"])):
-            await ctx.channel.purge(limit= deletenum+1)
-        else:
-            await ctx.message.delete()
-            await ctx.send("你以為你是 `侑介#4644` 或是管管嗎")
-            await ctx.send(jdata["ars hit"])
+        await ctx.channel.purge(limit= deletenum+1)
+        embed=discord.Embed(title="管管們爆怒", description=f"導致 {deletenum} 條訊息被 {ctx.author.name} 吃掉了", color=0xfd12ca, timestamp= datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    @commands.has_guild_permissions(kick_members=True)
+    async def kick(self,ctx,member:discord.Member,*,reason="未指定"):
+        await member.kick()
+        embed=discord.Embed(title=f"{member} 已被{ctx.author} 踢出伺服器", description=f"原因 : {reason}", color=0xfd12ca, timestamp= datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+        embed.set_author(name="<==被踢的人", icon_url=f"{member.avatar_url}")
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    @commands.has_guild_permissions(ban_members=True)
+    async def ban(self,ctx,member:discord.Member,*,reason="未指定"):
+        await member.ban(delete_message_days=0)
+        embed=discord.Embed(title=f"{member} 已被{ctx.author} 停權", description=f"原因 : {reason}", color=0xfd12ca, timestamp= datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+        embed.set_author(name="<==被停權的人", icon_url=f"{member.avatar_url}")
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    @commands.has_guild_permissions(ban_members=True)
+    async def unban(self,ctx,member:int):
+        user = await self.bot.fetch_user(member)
+        await ctx.guild.unban(user)
+        embed=discord.Embed(title=f"{user} 已被 {ctx.author} 解除停權", description=" ", color=0xfd12ca,timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+        embed.set_author(name=f"{user}", icon_url=f"{user.avatar_url}")
+        await ctx.send(embed=embed)
 
 
 def setup(bot):
