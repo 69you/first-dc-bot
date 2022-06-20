@@ -427,13 +427,3 @@ class reaction(cog_all):
 
 def setup(bot):
     bot.add_cog(reaction(bot))
-
-'''
-        if payload.message_id==985448582633123871:
-            if str(payload.emoji)=="<:735087368066826280:962673234694791229>":
-                guild=self.bot.get_guild(payload.guild_id)
-                user=guild.get_member(payload.user_id)
-                role=guild.get_role(964322948519436389)
-                await user.remove_roles(role)
-                await user.send(f"已移除 {role} 身分組")
-                '''
