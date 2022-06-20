@@ -81,8 +81,6 @@ class respond(cog_all):
 
         if msg.content=="幹":
               await msg.reply("請停止你的行為 "+ jdata["ars hit"])
-        if "discord.gg" in msg.content and msg.author.guild.id==886948907647631431:
-          await msg.delete()
 
         if "<@878830839822176287>" in msg.content and msg.author.guild.id== 935165737314685009:
           await msg.reply("那個智障正在淺水喔，等他浮上來吧")
@@ -110,17 +108,6 @@ class respond(cog_all):
             if key12 in msg.content and msg.author!= self.bot.user:
                 await msg.reply("除我")
                 break
-          
-'''
-        if "<@878830839822176287>" in msg.content:
-              await msg.reply("那個笨蛋正在睡覺喔")
-'''
-
-'''
-        if "<@878830839822176287>" in msg.content and msg.author != self.bot.user:
-                await msg.reply("侑介正在做專題喔,等他上線吧")
-                await msg.channel.send("<a:777237749740470282:979706385765896193>")
-        '''
 
 
 def setup(bot):
