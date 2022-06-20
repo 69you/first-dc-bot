@@ -35,7 +35,7 @@ class respond(cog_all):
             await msg.reply("你怎麼叫我走開QQ，不跟你好了啦")
             await msg.channel.send("<:emoji_46:935534306841997333>")  
 
-        if msg.author.id == (int(jdata["yuusuke id"])) or msg.author.id == (int(jdata["誠 id"])) or msg.author.id == (int(jdata["小飄 id"])) or msg.author.id == (int(jdata["小小飄 id"])) or msg.author.id == (int(jdata["煋夜 id"])) or msg.author.id == (int(jdata["死神 id"])) or msg.author.id == (int(jdata["小魚 id"])) or msg.author.id == (int(jdata["昆布 id"])) or msg.author.id == (int(jdata["四季 id"])) or msg.author.id == (int(jdata["夏旪 id"])) or msg.author.id == (int(jdata["白日夢 id"])):
+        if msg.author.id == (int(jdata["yuusuke id"])) or msg.author.id == (int(jdata["小飄 id"])) or msg.author.id == (int(jdata["小小飄 id"])) or msg.author.id == (int(jdata["煋夜 id"])) or msg.author.id == (int(jdata["死神 id"])) or msg.author.id == (int(jdata["小魚 id"]))  or msg.author.id == (int(jdata["白日夢 id"])):
             if msg.content == "簽" and msg.author != self.bot.user:
                 await msg.add_reaction("✅")
 
