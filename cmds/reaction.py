@@ -1,3 +1,4 @@
+from email import message
 from os import remove
 import discord
 from discord.ext import commands
@@ -199,7 +200,51 @@ class reaction(cog_all):
                 role=guild.get_role(935470816768966706)
                 await payload.member.add_roles(role)
                 channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")  
+        #其他 
+        elif payload.message_id==988489517721866270:
+            #boy
+            if str(payload.emoji)=="♂️":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(962179014955507822)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")  
+            #girl
+            elif str(payload.emoji)=="♀️":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(962179082806771772)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組") 
+            #evennot
+            elif str(payload.emoji)=="<:evennot:988809449114325022>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(971790087652257823)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
                 await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")    
+            #youngboy    
+            elif str(payload.emoji)=="<:youngboy:988811608509800458>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(974986953688776724)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")     
+            #loli
+            elif str(payload.emoji)=="<:unknown:969509611805753364>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(974985767019495474)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+            #getmsg
+            elif str(payload.emoji)=="<:ghosthug:940529537530351626>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(976712882085564436)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
 
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self,payload):
@@ -423,6 +468,56 @@ class reaction(cog_all):
                 await user.remove_roles(role)
                 channel=self.bot.get_channel(977121281361182750)
                 await channel.send(f"{user.mention} 已移除 `{role}` 身分組")   
+        #其他 
+        elif payload.message_id==988489517721866270:
+            #boy
+            if str(payload.emoji)=="♂️":
+                guild=self.bot.get_guild(payload.guild_id)
+                user=guild.get_member(payload.user_id)
+                role=guild.get_role(962179014955507822)
+                await user.remove_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{user.mention} 已移除 `{role}` 身分組")  
+            #girl
+            elif str(payload.emoji)=="♀️":
+                guild=self.bot.get_guild(payload.guild_id)
+                user=guild.get_member(payload.user_id)
+                role=guild.get_role(962179082806771772)
+                await user.remove_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{user.mention} 已移除 `{role}` 身分組") 
+            #evennot
+            elif str(payload.emoji)=="<:evennot:988809449114325022>":
+                guild=self.bot.get_guild(payload.guild_id)
+                user=guild.get_member(payload.user_id)
+                role=guild.get_role(971790087652257823)
+                await user.remove_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{user.mention} 已移除 `{role}` 身分組")    
+            #youngboy    
+            elif str(payload.emoji)=="<:youngboy:988811608509800458>":
+                guild=self.bot.get_guild(payload.guild_id)
+                user=guild.get_member(payload.user_id)
+                role=guild.get_role(974986953688776724)
+                await user.remove_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{user.mention} 已移除 `{role}` 身分組")     
+            #loli
+            elif str(payload.emoji)=="<:unknown:969509611805753364>":
+                guild=self.bot.get_guild(payload.guild_id)
+                user=guild.get_member(payload.user_id)
+                role=guild.get_role(974985767019495474)
+                await user.remove_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{user.mention} 已移除 `{role}` 身分組")
+            #getmsg
+            elif str(payload.emoji)=="<:ghosthug:940529537530351626>":
+                guild=self.bot.get_guild(payload.guild_id)
+                user=guild.get_member(payload.user_id)
+                role=guild.get_role(976712882085564436)
+                await user.remove_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{user.mention} 已移除 `{role}` 身分組")
 
 
 def setup(bot):
