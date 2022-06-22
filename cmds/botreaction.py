@@ -1,8 +1,10 @@
+from ast import alias
+from imp import new_module
 import discord 
 from discord.ext import commands
 from core.classes import cog_all
 from typing import Union
-import json
+import json,os,sys
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -58,6 +60,73 @@ class botreaction(cog_all):
             await ctx.send(msg)
         else :
             await ctx.message.delete()
+    
+    @commands.command(aliases=["st"])
+    async def status(self,ctx,status,kind,*,name,url):
+        if ctx.author.id==(int(jdata["yuusuke id"])):
+            if status=="dnd":
+                if kind=="game":
+                    await self.bot.change_presence(activity=discord.Game(name=f"{name}"),status=discord.Status.dnd)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="streaming" or kind=="stream":
+                    await self.bot.change_presence(activity=discord.Streaming(name=f"{name}",url=(f"{url}")),status=discord.Status.dnd)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="listing" or kind=="lis":
+                    await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"{name}"),status=discord.Status.dnd)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="watching" or kind=="watch":
+                    await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{name}"),status=discord.Status.dnd)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+            elif status=="idle":
+                if kind=="game":
+                    await self.bot.change_presence(activity=discord.Game(name=f"{name}"),status=discord.Status.idle)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="streaming" or kind=="stream":
+                    await self.bot.change_presence(activity=discord.Streaming(name=f"{name}",url=(f"{url}")),status=discord.Status.idle)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="listing" or kind=="lis":
+                    await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"{name}"),status=discord.Status.idle)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="watching" or kind=="watch":
+                    await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{name}"),status=discord.Status.idle)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+            elif status=="on":
+                if kind=="game":
+                    await self.bot.change_presence(activity=discord.Game(name=f"{name}"),status=discord.Status.online)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="streaming" or kind=="stream":
+                    await self.bot.change_presence(activity=discord.Streaming(name=f"{name}",url=(f"{url}")),status=discord.Status.online)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="listing" or kind=="lis":
+                    await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"{name}"),status=discord.Status.online)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+                elif kind=="watching" or kind=="watch":
+                    await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{name}"),status=discord.Status.online)
+                    embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
+                    await ctx.send(embed=embed)
+
+    @commands.command()
+    async def restart(self,ctx):
+        def restart_bot(): 
+            os.execv(sys.executable, ['python'] + sys.argv)
+        if ctx.author.id==878830839822176287:
+            await restart_bot()
+            embed=discord.Embed(title="✅ Bot Has Been Restart",description=" ",color=0xfd12ca,timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+            await ctx.send(embed=embed)    
+
+
+              
 
 
 def setup(bot):
