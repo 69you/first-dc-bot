@@ -1,5 +1,3 @@
-from ast import alias
-from imp import new_module
 import discord 
 from discord.ext import commands
 from core.classes import cog_all
@@ -115,10 +113,7 @@ class botreaction(cog_all):
                     await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{name}"),status=discord.Status.online)
                     embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
                     await ctx.send(embed=embed)
-<<<<<<< HEAD
     
-=======
-
     @commands.command()
     async def restart(self,ctx):
         def restart_bot(): 
@@ -126,9 +121,7 @@ class botreaction(cog_all):
         if ctx.author.id==878830839822176287:
             await restart_bot()
             embed=discord.Embed(title="✅ Bot Has Been Restart",description=" ",color=0xfd12ca,timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
-            await ctx.send(embed=embed)    
->>>>>>> 14a569a5c60c45e3f512c67b40bc9dd54bd15248
-
+            await ctx.send(embed=embed)  
 
               
 

@@ -1,4 +1,3 @@
-from ast import keyword
 import string
 import discord
 from discord.ext import commands

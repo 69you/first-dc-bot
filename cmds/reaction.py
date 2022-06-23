@@ -1,4 +1,3 @@
-from email import message
 from os import remove
 import discord
 from discord.ext import commands

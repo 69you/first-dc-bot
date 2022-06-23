@@ -1,9 +1,10 @@
-from turtle import title
 import discord
 from discord.ext import commands
 from core.classes import cog_all
 import json , datetime , random, asyncio
 from typing import Union
+import googletrans
+from googletrans import Translator
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -93,7 +94,6 @@ class fun(cog_all):
         embed=discord.Embed(title="人工智障的邀請函",url="https://discord.com/api/oauth2/authorize?client_id=977086056967053353&permissions=8&scope=bot",description=f"邀請前請先找 `侑介#4644`", color=0xfd12ca, timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
         await ctx.send(embed=embed)
 
-<<<<<<< HEAD
     @commands.command()
     async def nick(self,ctx, member:discord.Member, nick=None):
         if nick==None:
@@ -113,10 +113,13 @@ class fun(cog_all):
                 await ctx.message.delete()
                 await member.edit(nick=nick)
                 embed=discord.Embed(title=f"{member} 的暱稱已經更改",description=f"前: `{name}` ,後: `{nick}` ", color=0xfd12ca, timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
-                await ctx.send(embed=embed)       
-=======
-        
->>>>>>> 14a569a5c60c45e3f512c67b40bc9dd54bd15248
+                await ctx.send(embed=embed)
+
+    @commands.command(aliases=["trans","t"])
+    async def translate(self,ctx,lang,*word):
+        t=Translator()
+        a=t.translate(text=word,dest=lang)   
+        await ctx.send(a.text)
 
 def setup(bot):
   bot.add_cog(fun(bot))
