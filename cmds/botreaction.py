@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from core.classes import cog_all
 from typing import Union
-import json,os,sys
+import json,os,sys,datetime
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -60,7 +60,7 @@ class botreaction(cog_all):
             await ctx.message.delete()
     
     @commands.command(aliases=["st"])
-    async def status(self,ctx,status,kind,*,name,url):
+    async def status(self,ctx,status,kind,*,name,url=None):
         if ctx.author.id==(int(jdata["yuusuke id"])):
             if status=="dnd":
                 if kind=="game":
@@ -113,15 +113,17 @@ class botreaction(cog_all):
                     await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{name}"),status=discord.Status.online)
                     embed=discord.Embed(title="✅ Changing Status Complted!",description=" ",color=0xfd12ca)
                     await ctx.send(embed=embed)
-    
+                    
     @commands.command()
     async def restart(self,ctx):
         def restart_bot(): 
             os.execv(sys.executable, ['python'] + sys.argv)
         if ctx.author.id==878830839822176287:
+            a=await ctx.send("<a:715586639623356438:989524987696254996> Restarting Bot...")
             await restart_bot()
             embed=discord.Embed(title="✅ Bot Has Been Restart",description=" ",color=0xfd12ca,timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
-            await ctx.send(embed=embed)  
+            await a.reply(embed=embed)    
+
 
               
 
