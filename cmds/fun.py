@@ -3,8 +3,6 @@ from discord.ext import commands
 from core.classes import cog_all
 import json , datetime , random, asyncio
 from typing import Union
-import googletrans
-from googletrans import Translator
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -114,12 +112,12 @@ class fun(cog_all):
                 await member.edit(nick=nick)
                 embed=discord.Embed(title=f"{member} 的暱稱已經更改",description=f"前: `{name}` ,後: `{nick}` ", color=0xfd12ca, timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
                 await ctx.send(embed=embed)
+    
+    @commands.command(aliases=["si"])
+    async def serverinvite(self,ctx):
+            link=await ctx.channel.create_invite()
+            await ctx.send(str(link))
 
-    @commands.command(aliases=["trans","t"])
-    async def translate(self,ctx,lang,*word):
-        t=Translator()
-        a=t.translate(text=word,dest=lang)   
-        await ctx.send(a.text)
 
 def setup(bot):
   bot.add_cog(fun(bot))
