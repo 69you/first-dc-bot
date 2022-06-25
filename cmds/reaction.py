@@ -244,6 +244,98 @@ class reaction(cog_all):
                 await payload.member.add_roles(role)
                 channel=self.bot.get_channel(977121281361182750)
                 await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+        elif payload.message_id==987020281233162362:
+            #v #ln #mmj #vbs #ws #25 #boy #all
+            role=["935470974554476544","935471090921263125","935471275831357490","935471644430987285","935471998908399676","935472212641714176","935472361417887774","935472448122531840"]            
+            for i in role:
+                if i in str(payload.member.roles):
+                    print("yes")
+                    guild=self.bot.get_guild(payload.guild_id)
+                    user=guild.get_member(payload.user_id)
+                    role=guild.get_role(int(i))
+                    await user.remove_roles(role)                
+                    channel=self.bot.get_channel(977121281361182750)
+                    await channel.send(f"{user.mention} 已移除 `{role}` 身分組")
+            #vs
+            if str(payload.emoji)=="<:vituralsinger:987627314605080576>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935470974554476544)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:vituralsinger:987627314605080576>",payload.member)
+            #ln
+            elif str(payload.emoji)=="<:ln:987627341117272104>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935471090921263125)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:ln:987627341117272104>",payload.member)
+            #mmj
+            elif str(payload.emoji)=="<:mmj:987627409379565579>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935471275831357490)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:mmj:987627409379565579>",payload.member)
+            #vbs
+            elif str(payload.emoji)=="<:vbs:987633106842419220>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935471644430987285)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:vbs:987633106842419220>",payload.member)
+            #ws
+            elif str(payload.emoji)=="<:ws:987627490057003029>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935471998908399676)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:ws:987627490057003029>",payload.member)
+            #25
+            elif str(payload.emoji)=="<:25:987627522634153994>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935472212641714176)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:25:987627522634153994>",payload.member)
+            #boy
+            elif str(payload.emoji)=="<:boys:987651954048127006>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935472361417887774)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:boys:987651954048127006>",payload.member)
+            #all
+            elif str(payload.emoji)=="<:all:989930102253043742>":
+                guild=self.bot.get_guild(payload.guild_id)
+                role=guild.get_role(935472448122531840)
+                await payload.member.add_roles(role)
+                channel=self.bot.get_channel(977121281361182750)
+                await channel.send(f"{payload.member.mention} 已獲得 `{role}` 身分組")
+                channe2=self.bot.get_channel(978292320984260648)
+                message=await channe2.fetch_message(987020281233162362)
+                await message.remove_reaction("<:all:989930102253043742>",payload.member)
 
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self,payload):
