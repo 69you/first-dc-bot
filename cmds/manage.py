@@ -2,8 +2,7 @@ import discord
 from discord.ext import commands
 import json,datetime
 from core.classes import cog_all
-from discord import User
-from discord.ext.commands import Bot
+from discord.ext import commands
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
