@@ -1,5 +1,3 @@
-from importlib.resources import contents
-from turtle import title
 import discord
 import json
 import random
@@ -29,10 +27,9 @@ async def on_ready():
 async def on_message_delete(before):
     if before.channel.id==910799151384633344:
         if before.author.bot==False:
-            link = str(before.author.avatar_url)
-            link2=link.replace(".webp",".png")
+            link = str(before.author.avatar_url_as(format="png"))
             embed=discord.Embed(title=f"{before.author},id= {before.author.id}",description=f"{before.content}",color=0xfd12ca,timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
-            embed.set_author(name=f"{before.author}",icon_url=f"{link2}")
+            embed.set_author(name=f"{before.author}",icon_url=f"{link}")
             await before.channel.send(embed=embed)
 
 for filename in os.listdir('./cmds'):
