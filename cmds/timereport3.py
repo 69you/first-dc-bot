@@ -55,7 +55,7 @@ class timereport4(cog_all):
                 now_time=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))).strftime("%H%M%S")   
                 if now_time == "030000":
                     await self.channel.send("好耶，三點了")
-                    await self.channel.send("https://i.imgur.com/EGO35hf.jpg")
+                    await self.channel.send("https://tenor.com/view/eat-bed-gif-7332284")
                     await self.channel.send("<@464658705669947394> 早安")
                     await asyncio.sleep(1)
                 else:
