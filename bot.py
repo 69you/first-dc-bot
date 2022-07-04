@@ -5,14 +5,15 @@ import os
 import datetime
 import asyncio
 from discord.ext import commands
-
-
+import discord_slash
+from discord_slash import SlashCommand
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
 intents=discord.Intents.all()
-bot=commands.Bot(command_prefix="*",intents=intents,help_command=None)
+bot=commands.Bot(command_prefix="**",intents=intents,help_command=None)
+slash=SlashCommand(bot,sync_commands=True)
 
 @bot.event
 async def on_ready():
@@ -38,4 +39,4 @@ for filename in os.listdir('./cmds'):
         bot.load_extension(f'cmds.{filename[:-3]}')
 
 if __name__=='__main__':
-    bot.run("OTc3MDg2MDU2OTY3MDUzMzUz.GwZaQ0.w5u9B5NpOEgEGUWpmgdkRckDN2qhGbgRSRP9Ps") 
+    bot.run("OTgwMzU4OTE1MTg1MzE5OTg2.GXLzLc.k5xEbULmmQfncxaZWojY1lqH4BMkJ-2J3LpdE0")
