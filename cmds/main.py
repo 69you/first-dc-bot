@@ -2,7 +2,7 @@ import string
 import discord
 from discord.ext import commands
 from core.classes import cog_all
-import json , datetime , random, asyncio,os
+import json , datetime , random, asyncio,os,sys
 
 with open ('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -53,23 +53,20 @@ class help(cog_all):
     async def help(self,ctx):
         #await ctx.message.delete()
         embed=discord.Embed(title="侑介のbot", url="http://yt1.piee.pw/46vhku", description="由侑介#4644所開發的人工智障", color=0xfd12ca, timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
-        embed.set_author(name="<==這是侑介", icon_url="https://cdn.discordapp.com/avatars/878830839822176287/e947993f71d34bd423b0a24e166ccf42.png?size=4096")
+        embed.set_author(name="<==這是侑介", icon_url="https://cdn.discordapp.com/avatars/878830839822176287/e16a95f995ec014da521105e80a9de83.png?size=4096")
         embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/977086056967053353/ebc17adf1bc26fe27571586430b56ae8.png?size=4096")
         await ctx.send(embed=embed) 
 
 class helpful(cog_all):
     @commands.command()
-    async def shutdown(self,ctx):
-      if ctx.author.id==(int(jdata["yuusuke id"])):
-          await ctx.channel.purge(limit=1)
-          await ctx.send("Restarting bot...")
-          await ctx.bot.logout()
-          ctx.bot.run(jdata["token"])
-          await asyncio.sleep(2)
-          await ctx.channel.purge(limit=1)
-          await ctx.send("Restarting complete!")
-          await asyncio.sleep(2)
-          await ctx.channel.purge(limit=1)
+    async def restart(self,ctx):
+        def restart_bot(): 
+            os.execv(sys.executable, ['python'] + sys.argv)
+        if ctx.author.id==878830839822176287:
+            a=await ctx.send("<a:715586639623356438:989524987696254996> Restarting Bot...")
+            await restart_bot()
+            embed=discord.Embed(title="✅ Bot Has Been Restart",description=" ",color=0xfd12ca,timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+            await a.reply(embed=embed)  
 
     @commands.command()
     async def print(self,ctx):
