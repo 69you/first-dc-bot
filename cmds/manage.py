@@ -39,6 +39,22 @@ class manage(cog_all):
         embed.set_author(name=f"{user}", icon_url=f"{user.avatar_url}")
         await ctx.send(embed=embed)
 
+    @commands.command()
+    @commands.has_guild_permissions(manage_messages=True)
+    async def pin(self,ctx,msg):
+        await ctx.message.delete()
+        pinmssg=await ctx.fetch_message(msg)
+        await pinmssg.pin()
+        await pinmssg.reply("此訊息已釘選",mention_author=False)
+    
+    @commands.command()
+    @commands.has_guild_permissions(manage_messages=True)
+    async def unpin(self,ctx,msg):
+        await ctx.message.delete()
+        unpinmsg=await ctx.fetch_message(msg)
+        await unpinmsg.unpin()
+        await unpinmsg.reply("此訊息已解除釘選",mention_author=False)
+
 
 def setup(bot):
     bot.add_cog(manage(bot))
