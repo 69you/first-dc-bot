@@ -1,0 +1,6 @@
+#on_guild_role_create
+#on_guild_role_delete
+#on_guild_role_update
+#on_guild_emojis_update
+#on_invite_create
+#on_invite_delete

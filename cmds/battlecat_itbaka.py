@@ -34,6 +34,10 @@ class baka(cog_all):
         embed=discord.Embed(title="tbd下載教學影片", url="http://surl.li/cineu", description="自己研究吧",  color=0xfd12ca, timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def 真載點(self,ctx):
+        embed=discord.Embed(title="IT下載教學影片", url="https://www.youtube.com/watch?v=yGdkHlD5zVU", description="真．載點",  color=0xfd12ca, timestamp=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+8))))
+        await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(baka(bot))        
